@@ -40,7 +40,7 @@ export default function FormModal({modalVisibleForm, setModalVisibleForm, addPar
             <View className="flex-row items-center justify-between">
                 <Text className="text-white">Pieza: </Text>
                 <View className="border border-white rounded-2xl w-3/4">
-                    <Picker style={{color: 'white', padding: 0}} selectedValue={formik.values.piece} onValueChange={formik.handleChange('piece')}>
+                    <Picker style={{color: 'white', padding: 0, margin: 0, height: 40}} selectedValue={formik.values.piece} onValueChange={formik.handleChange('piece')}>
                         <Picker.Item label="Selecciona una pieza" value=""/>
                         { pieces.map((piece) => (
                             <Picker.Item label={piece} value={piece}/>
