@@ -1,26 +1,27 @@
 import {Pressable, Text, View} from "react-native";
 
-const CardPiece = (piece) => {
-
+const CardPiece = ({part, erasePart, setCurrentPart, setModalVisibleDetails}) => {
     return (
-        <View className="bg-[#3b3b48] p-4 rounded-xl flex-row items-center justify-between">
+        <Pressable className="bg-[#3b3b48] p-4 rounded-xl flex-row items-center justify-between mb-2" onPress={() => {
+            setCurrentPart(part);
+            setModalVisibleDetails(true);
+        }}>
             <View className="">
                 <View className="flex-row">
                     <Text className="text-white font-bold">Pieza: </Text>
-                    <Text className="text-white">Llanta </Text>
+                    <Text className="text-white">{part.piece}</Text>
                 </View>
 
                 <View className="flex-row">
                     <Text className="text-white font-bold">Fecha de cambio: </Text>
-                    <Text className="text-white">Hoy</Text>
+                    <Text className="text-white">{part.changeDate}</Text>
                 </View>
             </View>
 
-            <Pressable className="py-3 px-10 rounded-full bg-[#ea5583]"
-                       onPress={() => {}}>
+            <Pressable className="py-3 px-5 rounded-full bg-[#ea5583]" onPress={() => erasePart(part)}>
                 <Text className="text-white font-bold">Eliminar</Text>
             </Pressable>
-        </View>
+        </Pressable>
     );
 }
 
